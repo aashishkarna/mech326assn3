@@ -24,10 +24,10 @@ Utility Scripts
 - Failure Check: Yield (Nolan)
     * Not Complete
     * Not Checked
-- Failure Check: Critical Speed (Who did this?)
+- Failure Check: Critical Speed (Nolan)
     * Not Complete
     * Not Checked
-- Failure Check: Fatigue (Who was doing this?)
+- Failure Check: Fatigue (Ryan)
     * Not Complete
     * Not Checked
 - Final Check: Take Final Design, go to analysis from beginning to end

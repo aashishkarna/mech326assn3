@@ -22,7 +22,7 @@ Utility Scripts
     * Not Complete - Need to confirm Bearing and Gear Locations
     * Not Checked
 - Failure Check: Yield (Nolan)
-    * Not Complete
+    * Complete
     * Not Checked
 - Failure Check: Critical Speed (Nolan)
     * Not Complete

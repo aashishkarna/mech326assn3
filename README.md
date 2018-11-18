@@ -13,10 +13,10 @@ Utility Scripts
     * Complete
     * Not Checked
 - Draw Nice Solidworks Image of Shaft (Aashish)
-    * Not Complete
+    * Complete
     * Not Checked
 - Write x2D.m (Aashish)
-    * Not Complete
+    * Complete
     * Not Checked
 - Failure Check: Permissible Deflection and Slope (Calvin)
     * Not Complete - Need to confirm Bearing and Gear Locations

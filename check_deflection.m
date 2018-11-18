@@ -20,7 +20,7 @@ function [did_pass] = check_deflection(x, y, theta)
     if abs(theta(ind_B1)) > max_slope
         did_pass = 0;
     end
-    if ) > max_slope
-        did_pass = 0;
-    end
+    %if ) > max_slope
+    %    did_pass = 0;
+    %end
 end

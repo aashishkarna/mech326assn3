@@ -16,7 +16,7 @@ function [nf] = fatigue (D, Sigma, x, shoulder_indices)
   title('n\_fatigue');
   
   for i = shoulder_indices
-    disp(['Shoulder fatigue safety factor of ', num2str(nf(i)), ' at x = ', num2str(x(i))])
+    disp(['Shoulder fatigue safety factor of ', num2str(min(nf(i),nf(i+1))), ' at x = ', num2str(x(i))])
   end
   [nf, i] = min(nf);
   disp(['Minimum fatigue safety factor of ', num2str(nf), ' at x = ', num2str(x(i))])

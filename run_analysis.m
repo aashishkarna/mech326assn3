@@ -11,15 +11,6 @@ RHO = 7870;                     % Density of shaft material (kg/m^3)
 OPSpeed = 300;                  % Operational shaft rotation speed (rev/min) 
 Ni = 10;                        % Number of discrete elements for critical speed analysis
 
-%% shoulder locations
-[col,len] = size(x);
-shoulders = [];
-for i = 1:len-1
-    if abs(D(i)-D(i+1)) > 0
-        shoulders = [shoulders;i];
-    end
-end
-
 %% Generate Shear and Bending Moment Diagrams
 do_plot = 0;    % Set to 1 to plot the diagrams
 [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, d, E, do_plot);

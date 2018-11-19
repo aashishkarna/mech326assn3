@@ -10,7 +10,7 @@ function [nf] = fatigue (D, Sigma, x, shoulder_indices)
   kb = (1.51*(1000 * D).^(-0.157)).*(D>0.051)+(1.24*(1000 * D).^(-0.107)).*(D<=0.051);
   Se = Se * ka * kb;
   nf = Se ./ Sigma;
-  nf = min(nf, 10);
+  nf = min(nf, 15);
   
   plot(x, nf);
   title('n\_fatigue');

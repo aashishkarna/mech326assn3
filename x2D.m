@@ -1,6 +1,6 @@
 % Get the diameter at any point on the shaft
-% input: x - Location along shaft (mm)
-% output: D - diameter at each location along the shaft (mm)
+% input: x - Location along shaft (m)
+% output: D - diameter at each location along the shaft (m)
 function D = x2D(x)
     [m,n] = size(x);
     D = ones(1, n);
@@ -31,8 +31,6 @@ function D = x2D(x)
     
     
 % ------------------------------------------------------------------------    
-    
-    
     length = 0;
     length2 = length + bearing1_w;
     length3 = length2 + bearing1_sh_w;
@@ -80,6 +78,6 @@ function D = x2D(x)
         if i>length9
             D(i) = gear2_d;
         end 
-        
     end 
+    D = D/1000;
 end

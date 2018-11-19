@@ -26,7 +26,12 @@ if(n_yield < 3)
 end
 
 %% Check Fatigue
-
+% Need max_stress and K_t at point of max stress
+% n_fatigue = fatigue(D, max_stress, K_t);
+n_fatigue = 0;
+if(n_fatigue < 3)
+   disp('Failed Fatige Check')
+end
 
 %% Check Critical Speed
 %NEED sections : a list of indices where the shaft diameter changes size.

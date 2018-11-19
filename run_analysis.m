@@ -28,7 +28,7 @@ end
 
 %% Check Fatigue
 sigma_rev = abs(M_z).*(D/2)./inertia(D, d);
-n_fatigue = fatigue(D, sigma_rev, x);
+n_fatigue = fatigue(D, sigma_rev, x, [100,]);
 if(n_fatigue < 3)
    disp('Failed Fatige Check')
 end

@@ -46,9 +46,8 @@ function [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, d, E, do_plot)
     
     % Get the correct constant: D = 0 since y(x=0) = 0
     % Get the constant that makes: y(x=0.45) = 0
-    C = -y_tmp(x2ind(x, 0.45)) / 0.45;
-    theta = theta_tmp + C;
-    y = y_tmp + C*x;
+    bear_ind = x2ind(x, 0.45);
+    
     
     if do_plot
         figure;

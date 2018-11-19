@@ -7,9 +7,9 @@ function D = x2D(x)
     
     % Standard bearing sizes available from Shigley's Table 11-2
     bearing1_d = 10;            % bore
-    bearing1_w = 9;             % width
+    bearing1_w = 39;             % width
     bearing1_sh_d = 12.5;       % shoulder diameter d_s
-    bearing1_sh_w = 5;          % shoulder width chosen (not in shigley)
+    bearing1_sh_w = 10;          % shoulder width chosen (not in shigley)
     
     % Gear diameters selected from the same table
     gear1_d = 15;               

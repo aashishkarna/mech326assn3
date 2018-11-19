@@ -26,9 +26,8 @@ if(n_yield < 3)
 end
 
 %% Check Fatigue
-% Need max_stress and K_t at point of max stress
-% n_fatigue = fatigue(D, max_stress, K_t);
-n_fatigue = 0;
+sigma_rev = abs(M_z).*(D/2)./inertia(D);
+n_fatigue = fatigue(D, sigma_rev, x);
 if(n_fatigue < 3)
    disp('Failed Fatige Check')
 end

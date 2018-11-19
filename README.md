@@ -15,6 +15,7 @@ Utility Scripts
 - Draw Nice Solidworks Image of Shaft (Aashish)
     * Complete
     * Not Checked
+[Shaft model: ](Shaft Model and Drawing/shaft1.png)
 - Write x2D.m (Aashish)
     * Complete
     * Not Checked

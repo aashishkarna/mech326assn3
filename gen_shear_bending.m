@@ -27,7 +27,7 @@ function [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, d, E, do_plot)
     V_y = zeros(1, len_x);
     V_y(1:100) = 1591.45;
     V_y(101:450) = 1591.45 - 2400 - 48.2*9.81;
-    V_y(451:end) = 1591.45 - 2400 - 48.2*9.81 + 5181.27;
+    V_y(451:525) = 1591.45 - 2400 - 48.2*9.81 + 5181.27;
 
     % Bending
     M_z = zeros(1, len_x);
@@ -35,7 +35,7 @@ function [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, d, E, do_plot)
     M_z2 = M_z1 + V_y(450)*0.35;
     M_z(1:100) = polyval(polyfit([0, .099], [0, M_z1], 1), x(1:100));
     M_z(101:450) = polyval(polyfit([0.1, .449], [M_z1, M_z2], 1), x(101:450));
-    M_z(451:end) = polyval(polyfit([.45, x(end)], [M_z2, 0], 1), x(451:len_x));
+    M_z(451:525) = polyval(polyfit([.45, x(525)], [M_z2, 0], 1), x(451:525));
 
     % M/EI
     M_over_EI = M_z ./ (inertia(D, d) * E);

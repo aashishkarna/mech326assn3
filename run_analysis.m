@@ -6,7 +6,7 @@ x = linspace(0, len_x, 601);    % Location along the shaft (m)
 Sy = 390e6;                     % Yeild Strength (pa)
 E = 190e9;                      % Young's Module (Pa)
 D = x2D(x);                     % Diameter of the shaft at each point x (m)
-d = 0.016;                      % Inner diameter of shaft (m)
+d = 0.019;                      % Inner diameter of shaft (m)
 RHO = 7870;                     % Density of shaft material (kg/m^3)
 OPSpeed = 300;                  % Operational shaft rotation speed (rev/min) 
 Ni = 10;                        % Number of discrete elements for critical speed analysis
@@ -35,7 +35,6 @@ for i = 1:len-1
     end
 end
     
-
 %% Check Fatigue
 sigma_rev = abs(M_z).*(D/2)./inertia(D, d);
 n_fatigue = fatigue(D, sigma_rev, x, shoulders');
@@ -48,3 +47,5 @@ end
 if((crit_speed1*2) < OPSpeed && (crit_speed2*2) < OPSpeed)
    disp('Failed Critical Speed Check') 
 end
+
+disp(['Mass: ' num2str(mass(x, D, d , RHO)) ' kg']);

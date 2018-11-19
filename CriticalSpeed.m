@@ -10,7 +10,8 @@
 %   omega1 - critical speed in rev/min from A to B
 %   omega2 - critical speed in rev/min from B to right end of shaft
 
-function [omega1, omega2] = CriticalSpeed(y, rho, xj, dj, din)
+function [omega1, omega2] = CriticalSpeed(yj, rho, xj, dj, din)
+    y = abs(yj);
     g = 9.81; %Gravitational Constant
     dxi = xj(2)-xj(1); %Evenly Distributed points
     Aind = x2ind(xj,0);

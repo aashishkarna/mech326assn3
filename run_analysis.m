@@ -34,7 +34,7 @@ if(n_fatigue < 3)
 end
 
 %% Check Critical Speed
-[crit_speed1, crit_speed2] = CriticalSpeed(y, RHO, x, D);
+[crit_speed1, crit_speed2] = CriticalSpeed(y, RHO, x, D, d);
 if((crit_speed1*2) < OPSpeed && (crit_speed2*2) < OPSpeed)
    disp('Failed Critical Speed Check') 
 end

@@ -4,12 +4,13 @@
 % rho - density of material
 % xj - location along shaft (m)
 % dj - deflections along shaft (m)
+% din - inner shaft diameter (m)
 % Uses: x2D function.
 % Output:
 %   omega1 - critical speed in rev/min from A to B
 %   omega2 - critical speed in rev/min from B to right end of shaft
 
-function [omega1, omega2] = CriticalSpeed(y, rho, xj, dj)
+function [omega1, omega2] = CriticalSpeed(y, rho, xj, dj, din)
     g = 9.81; %Gravitational Constant
     dxi = xj(2)-xj(1); %Evenly Distributed points
     Aind = x2ind(xj,0);
@@ -18,7 +19,7 @@ function [omega1, omega2] = CriticalSpeed(y, rho, xj, dj)
         
     %Between bearings (A to B)
     dAB = dj(Aind:Bind);
-    wAB = (rho.*pi.*(dAB.^2).*dxi)./4;
+    wAB = (rho.*pi.*(dAB.^2 - din.^2).*dxi)./4;
     yAB = y(Aind:Bind);
 
     %Add the shaft gears
@@ -32,7 +33,7 @@ function [omega1, omega2] = CriticalSpeed(y, rho, xj, dj)
     
     %Bearing B to Free end
     dBFree = dj(Bind:Endind);
-    wBFree = (rho.*pi.*(dBFree.^2).*dxi)./4;
+    wBFree = (rho.*pi.*(dBFree.^2 - din.^2).*dxi)./4;
     yBFree = y(Bind:Endind);
     
     sum2_wjyj = sum(yBFree.*wBFree);

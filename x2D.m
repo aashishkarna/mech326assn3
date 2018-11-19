@@ -9,14 +9,14 @@ function D = x2D(x)
     bearing1_d = 30;            % bore
     bearing1_sh_d = 35;       % shoulder diameter d_s
     
-    bearing1_w = 39;             % width
-    bearing1_sh_w = 10;          % shoulder width chosen (not in shigley)
+    bearing1_w = 8;             % width
+    bearing1_sh_w = 41;          % shoulder width chosen (not in shigley)
     
     % Gear diameters selected from the same table
     gear1_d = 35; 
     
     gear1_w = 100;
-    gear1_sh_w = 300;
+    gear1_sh_w = 310;
     
     % Note: The shoulder for gear 1 is to be 7.5-20 mm greater than bore
     % diameter. However, this shoulder is also the bore diameter for
@@ -30,7 +30,7 @@ function D = x2D(x)
     gear2_d = 45;
     
     gear2_w = 100;
-    gear2_sh_w = 25;            % shoulder width
+    gear2_sh_w = 15;            % shoulder width
     
     
 % ------------------------------------------------------------------------    

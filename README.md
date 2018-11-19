@@ -26,7 +26,7 @@ Utility Scripts
     * Complete
     * Not Checked
 - Failure Check: Critical Speed (Nolan)
-    * Not Complete
+    * Complete
     * Not Checked
 - Failure Check: Fatigue (Ryan)
     * Not Complete

@@ -2,6 +2,7 @@
 Generate Shear Bending Moment diagrams
 Inputs: x - distance along shaft (meters)
         D - Diameter at each point x (meters)
+        d - Inner diameter at each point x (meters)
         E - Young's Modulus (Pascals)
         do_plot - plot the diagrams if 1
 Outputs: y - deflection at each point x (meters)
@@ -11,7 +12,7 @@ Outputs: y - deflection at each point x (meters)
          T - Torque at each point x
          F - Force at each point x
 %}
-function [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, E, do_plot)
+function [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, d, E, do_plot)
     len_x = length(x);
     
     % Force
@@ -37,7 +38,7 @@ function [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, E, do_plot)
     M_z(451:end) = polyval(polyfit([.45, x(end)], [M_z2, 0], 1), x(451:len_x));
 
     % M/EI
-    M_over_EI = M_z ./ (inertia(D) * E);
+    M_over_EI = M_z ./ (inertia(D, d) * E);
 
     % Integrate to get slopes and deflections
     theta = cumtrapz(x/1000, M_over_EI);

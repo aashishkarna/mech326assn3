@@ -20,7 +20,7 @@ Utility Scripts
     * Complete
     * Not Checked
 - Failure Check: Permissible Deflection and Slope (Calvin)
-    * Not Complete - Need to confirm Bearing and Gear Locations
+    * Complete
     * Not Checked
 - Failure Check: Yield (Nolan)
     * Complete

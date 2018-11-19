@@ -17,7 +17,7 @@ function [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, d, E, do_plot)
     
     % Force
     F = zeros(1, len_x);
-    F(450:525) = 22.4;
+    F(450:525) = 22400;
     
     % Torque
     T = zeros(1, len_x);
@@ -53,7 +53,7 @@ function [y, theta, M_z, V_y, T, F] = gen_shear_bending(x, D, d, E, do_plot)
     if do_plot
         figure;
         subplot(2, 1, 1); 
-        plot([-20, 0, x*1000, 600, 620], [0, 0, F, 0, 0]); grid('on');
+        plot([-20, 0, x*1000, 600, 620], [0, 0, F/1000, 0, 0]); grid('on');
         xlabel('x (mm)'); ylabel('F (kN)'); title('Compressive Force vs. x');
         axis([-50, 650, -5, 25]);
         

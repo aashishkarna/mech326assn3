@@ -1,26 +1,43 @@
-%% Determines the Critical Speed of the Shaft
-% Currently doesn't take shaft components into consideration
+%% Determines the Critical Speeds of the Shaft
 % Inputs:
 % y - Function of xi for the deflections.
 % rho - density of material
-% sections - section boundary point indicies
 % xj - location along shaft (m)
 % dj - deflections along shaft (m)
 % Uses: x2D function.
 % Output:
-%   critical speed in rev/min
+%   omega1 - critical speed in rev/min from A to B
+%   omega2 - critical speed in rev/min from B to right end of shaft
 
-function omega1 = CriticalSpeed(y, rho, sections, xj, dj)
+function [omega1, omega2] = CriticalSpeed(y, rho, xj, dj)
     g = 9.81; %Gravitational Constant
     dxi = xj(2)-xj(1); %Evenly Distributed points
-    sum_wjyj = 0;
-    for j = 1:(length(sections)-1)
-        d = dj(sections(j):(sections(j)+1));
-        mi = (rho.*pi.*(d.^2).*dxi)./4;
-        wi = mi;
-        yi = y(sections(j):(sections(j)+1));
-        sum_wjyj = sum_wjyj + sum(yi.*wi);
-    end
-    omega1 = sqrt((g*sum_wjyj)/(sum_wjyj)) * (60.0/(2*pi));
+    Aind = x2ind(xj,0);
+    Bind = x2ind(xj,0.45);
+    Endind = length(xj);
+        
+    %Between bearings (A to B)
+    dAB = dj(Aind:Bind);
+    wAB = (rho.*pi.*(dAB.^2).*dxi)./4;
+    yAB = y(Aind:Bind);
+
+    %Add the shaft gears
+    wj_G1 = (48.2/g);
+    yj_G1 = y(x2ind(xj, 0.1));
+    wj_G2 = (5.9/g);
+    yj_G2 = y(x2ind(xj, 0.525));
+    sum1_wjyj = sum(yAB.*wAB) + (yj_G1*wj_G1) + (yj_G2*wj_G2);
+    sum1_wjyj2 = sum(wAB.*(yAB.^2)) + ((yj_G1^2)*wj_G1) + ((yj_G2^2)*wj_G2);
+    omega1 = sqrt((g*sum1_wjyj)/(sum1_wjyj2)) * (60.0/(2*pi));
+    
+    %Bearing B to Free end
+    dBFree = dj(Bind:Endind);
+    wBFree = (rho.*pi.*(dBFree.^2).*dxi)./4;
+    yBFree = y(Bind:Endind);
+    
+    sum2_wjyj = sum(yBFree.*wBFree);
+    sum2_wjyj2 = sum(wBFree.*(yBFree.^2));
+    omega2 = sqrt((g*sum2_wjyj)/(sum2_wjyj2)) * (60.0/(2*pi));
+    
 end
 

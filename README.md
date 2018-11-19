@@ -15,17 +15,18 @@ Utility Scripts
 - Draw Nice Solidworks Image of Shaft (Aashish)
     * Complete
     * Not Checked
+[Shaft model: ](Shaft Model and Drawing/shaft1.png)
 - Write x2D.m (Aashish)
     * Complete
     * Not Checked
 - Failure Check: Permissible Deflection and Slope (Calvin)
-    * Not Complete - Need to confirm Bearing and Gear Locations
+    * Complete
     * Not Checked
 - Failure Check: Yield (Nolan)
     * Complete
     * Not Checked
 - Failure Check: Critical Speed (Nolan)
-    * Not Complete
+    * Complete
     * Not Checked
 - Failure Check: Fatigue (Ryan)
     * Complete

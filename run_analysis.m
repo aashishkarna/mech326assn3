@@ -35,6 +35,16 @@ if(n_yield < 3)
    disp('Failed Yeild Check') 
 end
 
+%% shoulder locations
+[col,len] = size(x);
+shoulders = [];
+for i = 1:len-1
+    if abs(D(i)-D(i+1)) > 0
+        shoulders = [shoulders; i];
+    end
+end
+    
+
 %% Check Fatigue
 sigma_rev = abs(M_z).*(D/2)./inertia(D, d);
 n_fatigue = fatigue(D, sigma_rev, x, shoulders');
@@ -47,6 +57,3 @@ end
 if((crit_speed1*2) < OPSpeed && (crit_speed2*2) < OPSpeed)
    disp('Failed Critical Speed Check') 
 end
-
-
-    

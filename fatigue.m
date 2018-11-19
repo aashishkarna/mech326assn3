@@ -10,13 +10,13 @@ function [nf] = fatigue (D, Sigma, x, shoulder_indices)
   kb = (1.51*(1000 * D).^(-0.157)).*(D>0.051)+(1.24*(1000 * D).^(-0.107)).*(D<=0.051);
   Se = Se * ka * kb;
   nf = Se ./ Sigma;
-  nf = min(nf, 10);
+  nf = min(nf, 15);
   
   plot(x, nf);
   title('n\_fatigue');
   
   for i = shoulder_indices
-    disp(['Shoulder fatigue safety factor of ', num2str(nf(i)), ' at x = ', num2str(x(i))])
+    disp(['Shoulder fatigue safety factor of ', num2str(min(nf(i),nf(i+1))), ' at x = ', num2str(x(i))])
   end
   [nf, i] = min(nf);
   disp(['Minimum fatigue safety factor of ', num2str(nf), ' at x = ', num2str(x(i))])

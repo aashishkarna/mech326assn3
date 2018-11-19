@@ -34,9 +34,7 @@ if(n_fatigue < 3)
 end
 
 %% Check Critical Speed
-%NEED sections : a list of indices where the shaft diameter changes size.
-sections = [1, 100, 200, 300, 400, 600];
-crit_speed = CriticalSpeed(y, RHO, sections, x, D);
-if(crit_speed < OPSpeed)
-   disp('Operational speed above critical speed!') 
+[crit_speed1, crit_speed2] = CriticalSpeed(y, RHO, x, D);
+if((crit_speed1*2) < OPSpeed && (crit_speed2*2) < OPSpeed)
+   disp('Failed Critical Speed Check') 
 end

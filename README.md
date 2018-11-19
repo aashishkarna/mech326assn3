@@ -28,7 +28,7 @@ Utility Scripts
     * Not Complete
     * Not Checked
 - Failure Check: Fatigue (Ryan)
-    * Not Complete
+    * Complete
     * Not Checked
 - Final Check: Take Final Design, go to analysis from beginning to end
     * Not Complete
